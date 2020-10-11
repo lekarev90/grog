@@ -6,7 +6,29 @@ import { FETCH_URL_JSON_SERVER } from '../../constants';
 // "Автор: Вася, title: привет"
 
 function BasicFetch() {
-  return <div>hello</div>;
+  const [list, setList] = useState([]);
+  useEffect(() => {
+    const db = async () => {
+      const res = await fetch(FETCH_URL_JSON_SERVER);
+      const data = await res.json();
+      setList(data);
+    };
+    db();
+  }, []);
+  return (
+    <ul>
+      {list.map((el) => (
+        <li key={el.id}>
+          Автор:
+          {' '}
+          {el.name}
+          , title:
+          {' '}
+          {el.title}
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 export default BasicFetch;

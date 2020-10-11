@@ -1,12 +1,16 @@
 import React from 'react';
 
 function Name(props) {
-  const { name } = props;
-
+  const {
+    id, name, setState, state,
+  } = props;
+  const deleteItem = () => {
+    setState(state.filter((el) => el.id !== id));
+  };
   return (
     <>
       <li>{name}</li>
-      <button type="button">
+      <button onClick={deleteItem} type="button">
         Удалить
       </button>
     </>

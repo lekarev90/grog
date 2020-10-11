@@ -13,7 +13,7 @@ function Redux1() {
 
   return (
     <>
-      <input value={input} onChange={(e) => setInput(e.target.value)} />
+      <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
       <button type="button" onClick={() => dispatch(addName(input))}>Добавить</button>
       <ul>
         {names.map((el) => <li>{el}</li>)}
