@@ -5,11 +5,11 @@ const reducer = (state, action) => {
   console.log(action, 'action');
   switch (action.type) {
     case ADD_WORD:
-      console.log(state, 'state, names');
+      // console.log(...state, 'state, names');
       return { ...state, names: [...state.names, action.payload] };
 
     default:
-      return 'state';
+      return state;
   }
 };
 

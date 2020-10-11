@@ -8,7 +8,7 @@ import { addWord } from '../../redux/actions';
 
 function Redux1() {
   const dispatch = useDispatch();
-  const names = useSelector((state) => state);
+  const names = useSelector((state) => state.names);
   const [input, setInput] = useState('');
   console.log(names);
 
@@ -17,7 +17,7 @@ function Redux1() {
       <input value={input} onChange={(e) => setInput(e.target.value)} />
       <button onClick={() => dispatch(addWord(input))} type="button">Добавить</button>
       <ul>
-        {/* {names && names.map((el) => <li>{el}</li>)} */}
+        {names && names.map((el) => <li>{el}</li>)}
       </ul>
     </>
   );
